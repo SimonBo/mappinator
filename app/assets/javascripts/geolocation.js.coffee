@@ -6,29 +6,20 @@ GeoLocator =
       alert "Geolocation is not supported by this browser."
 
   showPosition: (position) ->
-    current_latitude = position.coords.latitude
-    current_longitude = position.coords.longitude
+    allPois = JSON.parse($('#map').attr('data-pois'));
+    allPois.push({"lat":position.coords.latitude,"lng":position.coords.longitude,"infowindow":"You","title":"You-title"});
+
     handler = Gmaps.build("Google")
     handler.buildMap
       provider: {}
       internal:
         id: "map"
     , ->
-      markers = handler.addMarkers([
-        lat: current_latitude
-        lng: current_longitude
-        zoom: 1
-        picture:
-          url: "http://labs.google.com/ridefinder/images/mm_20_red.png"
-          width: 36
-          height: 36
-
-        infowindow: "hello!"
-      ])
-      handler.bounds.extendWith markers
-      handler.fitMapToBounds()
+      markers = handler.addMarkers(allPois)
+      user = markers[(allPois.length-1)]
+      handler.map.centerOn(user);
+      # handler.bounds.extendWith markers
+      # handler.fitMapToBounds()
 
 jQuery ->
   GeoLocator.getLocation()
-
-
