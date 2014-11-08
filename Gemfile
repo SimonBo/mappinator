@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'gmaps4rails'
+gem "geocoder"
+
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
