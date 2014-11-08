@@ -1,6 +1,5 @@
 GeoLocator =
   getLocation: ->
-    console.log 'Fething location'
     if navigator.geolocation
       navigator.geolocation.getCurrentPosition(GeoLocator.showPosition)
     else
