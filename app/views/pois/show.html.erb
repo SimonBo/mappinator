@@ -1,0 +1,10 @@
+<ul>  
+  <li>   
+    <%= @poi.name %>
+    <%= @poi.category.name if @poi.category%>
+    <%= @poi.address if @poi.address %>
+    <%= @poi.description %>
+  </li>
+</ul>
+
+<%= link_to 'Back', root_path %>
