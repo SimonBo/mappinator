@@ -20,11 +20,10 @@ GeoLocator =
         lng: current_longitude
         zoom: 1
         picture:
-          url: "http://labs.google.com/ridefinder/images/mm_20_red.png"
+          url: "http://mythoughtspot.ca/media/uploads/default_map_all_1407956913_m.png"
           width: 36
           height: 36
-
-        infowindow: "hello!"
+ #       infowindow: "hello!"
       ])
       handler.bounds.extendWith markers
       handler.fitMapToBounds()
